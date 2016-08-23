@@ -1,18 +1,3 @@
 sudo: false
 language: python
 python: 2.7
-
-cache: false
-#install: pip install --user -r requirements.txt
-
-after_success:
-    # call codecov from project root
-    - if [[ $TRAVIS_PYTHON_VERSION != nightly ]]; then cd ../ && codecov; fi
-
-# This reportedly works around an issue downloading packages from pypi on
-# travis.  Consider removing this after the underlying issue is fixed.
-# https://github.com/travis-ci/travis-ci/issues/2389
-sudo: false
-
-matrix:
-    fast_finish: true
